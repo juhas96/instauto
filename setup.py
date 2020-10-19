@@ -18,6 +18,9 @@ setup(
           'pycryptodomex',
           'imagesize'
       ],
+  extras_require = {
+        'opencv-python':  ["video"]
+  },
   classifiers=[
     'Development Status :: 3 - Alpha',
     'Intended Audience :: Developers',
