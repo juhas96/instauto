@@ -12,6 +12,9 @@ from Cryptodome import Random
 
 from ..structs import Method, State, IGProfile, LoggedInAccountData
 
+import logging
+logger = logging.getLogger(__name__)
+
 
 class AuthenticationMixin:
     """This class handles everything authentication related."""
@@ -62,6 +65,7 @@ class AuthenticationMixin:
         }
         # does the actual login
         resp = self._request('accounts/login/', Method.POST, data=data2, signed=True)
+        logger.debug(resp.json())
         self.state.logged_in_account_data = LoggedInAccountData(**resp.json()['logged_in_user'])
 
     def _build_initial_headers(self) -> Dict[str, str]:
