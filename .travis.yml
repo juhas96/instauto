@@ -1,0 +1,22 @@
+language: python
+python:
+  - "3.8"
+  
+branches:
+  only:
+    - master
+
+before_install:
+  - python -m pip install --upgrade pipd
+  
+install:
+  - pip install pytest
+  - pip install -r requirements.txt
+  
+script:
+  - pytest
+  
+env:
+  INSTAUTO_TESTS_USERNAME: test_usernme
+  INSTAUTO_TESTS_PASSWORD: test_password
+  
