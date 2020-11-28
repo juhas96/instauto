@@ -7,7 +7,7 @@ branches:
     - master
 
 before_install:
-  - python -m pip install --upgrade pipd
+  - python -m pip install --upgrade pip
   
 install:
   - pip install pytest
