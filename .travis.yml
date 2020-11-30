@@ -2,6 +2,10 @@ language: python
 python:
   - "3.8"
   
+env:
+  INSTAUTO_TESTS_USERNAME: test_usernme
+  INSTAUTO_TESTS_PASSWORD: test_password
+  
 branches:
   only:
     - master
@@ -16,7 +20,10 @@ install:
 script:
   - pytest
   
-env:
-  INSTAUTO_TESTS_USERNAME: test_usernme
-  INSTAUTO_TESTS_PASSWORD: test_password
+before_deploy:
+  - python -m pip install --upgrade pip
+  - pip instal setuptools wheel twine
+  
+deploy:
+  python setup.py sdist bdist_wheel
   
